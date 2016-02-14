@@ -1,0 +1,9 @@
+-
+  name:  'V1 json-ld'
+  uriPattern: 'v1/json-ld/<V1JsonLdSubRoutes>'
+  defaults:
+    '@package':    'BuJitsuDo.Api'
+  subRoutes:
+    'V1JsonLdSubRoutes':
+      package: 'BuJitsuDo.Api'
+      suffix:  'V1.JsonLd'

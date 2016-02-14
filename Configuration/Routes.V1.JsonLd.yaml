@@ -1,0 +1,20 @@
+#### Users ####
+-
+  name: 'User listing'
+  uriPattern: 'users'
+  defaults:
+    '@package': 'BuJitsuDo.Api'
+    '@controller': 'Api'
+    '@action': 'listUsers'
+  httpMethods: ['GET']
+
+#### Events ####
+-
+  name: 'Event listing'
+  uriPattern: 'events'
+  defaults:
+    '@package': 'BuJitsuDo.Api'
+    '@controller': 'Api'
+    '@action': 'index'
+    'nodeType': 'BuJitsuDo.Api:Event'
+  httpMethods: ['GET']
