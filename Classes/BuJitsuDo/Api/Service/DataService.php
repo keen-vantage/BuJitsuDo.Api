@@ -12,6 +12,8 @@ class DataService
      */
     private static $serviceMapping = [
         'BuJitsuDo.Api:Event' => '\BuJitsuDo\Api\Service\EventService',
+        'BuJitsuDo.Api:Exam' => '\BuJitsuDo\Api\Service\ExamService',
+        'BuJitsuDo.Api:Article' => '\BuJitsuDo\Api\Service\NewsService'
     ];
 
     /**
@@ -20,7 +22,6 @@ class DataService
      */
     final public static function countData(array $routeData)
     {
-        /** @var DataInterface $service */
         $service = new self::$serviceMapping[$routeData['nodeType']];
         if ($routeData['type'] === 'count') {
             return $service->countItems();

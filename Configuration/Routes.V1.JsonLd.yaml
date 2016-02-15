@@ -1,13 +1,3 @@
-#### Users ####
--
-  name: 'User listing'
-  uriPattern: 'users'
-  defaults:
-    '@package': 'BuJitsuDo.Api'
-    '@controller': 'Api'
-    '@action': 'listUsers'
-  httpMethods: ['GET']
-
 #### Events ####
 -
   name: 'Event listing'
@@ -17,4 +7,56 @@
     '@controller': 'Api'
     '@action': 'index'
     'nodeType': 'BuJitsuDo.Api:Event'
+  httpMethods: ['GET']
+-
+  name: 'Event'
+  uriPattern: 'events/{identifier}'
+  defaults:
+    '@package': 'BuJitsuDo.Api'
+    '@controller': 'Api'
+    '@action': 'show'
+    'nodeType': 'BuJitsuDo.Api:Event'
+    'type': 'single'
+  httpMethods: ['GET']
+
+#### Exams ####
+-
+  name: 'Exam listing'
+  uriPattern: 'exams'
+  defaults:
+    '@package': 'BuJitsuDo.Api'
+    '@controller': 'Api'
+    '@action': 'index'
+    'nodeType': 'BuJitsuDo.Api:Exam'
+  httpMethods: ['GET']
+-
+  name: 'Exam'
+  uriPattern: 'exams/{identifier}'
+  defaults:
+    '@package': 'BuJitsuDo.Api'
+    '@controller': 'Api'
+    '@action': 'show'
+    'nodeType': 'BuJitsuDo.Api:Exam'
+    'type': 'single'
+  httpMethods: ['GET']
+
+#### News ####
+-
+  name: 'News listing'
+  uriPattern: 'articles'
+  defaults:
+    '@package': 'BuJitsuDo.Api'
+    '@controller': 'Api'
+    '@action': 'index'
+    'nodeType': 'BuJitsuDo.Api:Article'
+  httpMethods: ['GET']
+-
+  name: 'News'
+  uriPattern: 'articles/{identifier}'
+  defaults:
+    '@package': 'BuJitsuDo.Api'
+    '@controller': 'Api'
+    '@action': 'show'
+    'nodeType': 'BuJitsuDo.Api:Article'
+    'type': 'single'
   httpMethods: ['GET']

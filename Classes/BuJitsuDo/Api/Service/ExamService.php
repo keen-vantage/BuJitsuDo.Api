@@ -6,7 +6,7 @@ use TYPO3\Flow\Annotations as Flow;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Service\ContextFactoryInterface;
 
-class EventService extends AbstractDataService
+class ExamService extends AbstractDataService
 {
 
     /**
@@ -26,7 +26,7 @@ class EventService extends AbstractDataService
         }
         $context = $this->contextFactory->create(['workspace' => 'live']);
         $event = $context->getNodeByIdentifier($identifier);
-        $result['event'] = $this->buildSingleItemJson($event);
+        $result['exam'] = $this->buildSingleItemJson($event);
         return $result;
     }
 
@@ -37,10 +37,10 @@ class EventService extends AbstractDataService
     {
         $context = $this->contextFactory->create(['workspaceName' => 'live']);
         $flowQuery = new FlowQuery([$context->getRootNode()]);
-        $events = $flowQuery->find('[instanceof Nieuwenhuizen.BuJitsuDo:Event][!instanceof Nieuwenhuizen.BuJitsuDo:Exam]')->get();
-        $result['events'] = [];
+        $events = $flowQuery->find('[instanceof Nieuwenhuizen.BuJitsuDo:Exam]')->get();
+        $result['exams'] = [];
         foreach ($events as $event) {
-            $result['events'][] = $this->buildSingleItemJson($event);
+            $result['exams'][] = $this->buildSingleItemJson($event);
         }
         return $result;
     }
@@ -63,6 +63,7 @@ class EventService extends AbstractDataService
             'id' => $event->getIdentifier(),
             'shortIdentifier' => explode('-', $event->getIdentifier())[0],
             'title' => $event->getProperty('title'),
+            'type' => $event->getProperty('type'),
             'startDate' => $event->getProperty('start')->format('D M d Y H:i:s O'),
             'endDate' => $event->getProperty('end')->format('D M d Y H:i:s O'),
         ];
