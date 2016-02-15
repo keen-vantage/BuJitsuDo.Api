@@ -1,13 +1,13 @@
 {
-    "name": "bujitsudo/authentication-api",
+    "name": "bujitsudo/api",
     "type": "typo3-flow-package",
-    "description": "Add description here",
+    "description": "API to interact with the bujitsudo.nl website",
     "require": {
         "typo3/flow": "*"
     },
     "autoload": {
-        "psr-0": {
-            "BuJitsuDo\\Api": "Classes"
+        "psr-4": {
+            "BuJitsuDo\\Api\\": "Classes/"
         }
     }
 }
