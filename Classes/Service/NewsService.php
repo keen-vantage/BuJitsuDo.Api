@@ -1,7 +1,6 @@
 <?php
 namespace BuJitsuDo\Api\Service;
 
-use Gedmo\Tree\Node;
 use TYPO3\Eel\FlowQuery\FlowQuery;
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\Media\Domain\Model\Image;
@@ -76,8 +75,8 @@ class NewsService extends AbstractDataService
                 }
             }
         }
-        $thumbnailConfiguration = new ThumbnailConfiguration(150, 150, 150, 150, true, true, false);
-        $detailConfiguration = new ThumbnailConfiguration(400, 400, 300, 300, true, true, false);
+        $thumbnailConfiguration = new ThumbnailConfiguration(125, 125, 125, 125, true, true, false);
+        $detailConfiguration = new ThumbnailConfiguration(300, 300, 200, 200, true, true, false);
         /** @var Image $image */
         $image = $article->getProperty('headerImage');
         $properties = [

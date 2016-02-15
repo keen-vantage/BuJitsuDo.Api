@@ -35,7 +35,8 @@ class ApiController extends ActionController
      * @param string $type
      * @return string
      */
-    public function showAction($nodeType, $identifier, $type) {
+    public function showAction($nodeType, $identifier, $type)
+    {
         return json_encode(DataService::getData([
             'type' => $type,
             'identifier' => $identifier,
