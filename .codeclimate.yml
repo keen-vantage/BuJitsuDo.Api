@@ -1,0 +1,16 @@
+engines:
+  phpmd:
+    enabled: true
+    checks:
+      Naming/LongVariable:
+        enabled: false
+      CleanCode/StaticAccess:
+        enabled: false
+languages:
+  Ruby: false
+  JavaScript: true
+  PHP: true
+  Python: false
+
+exclude_paths:
+  - "Tests/*"

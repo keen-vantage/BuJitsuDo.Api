@@ -154,12 +154,7 @@ class AbstractDataService {
      * @throws \Exception
      * @return NodeInterface
      */
-    public function createChildNode(
-        NodeInterface $referenceNode,
-        $idealNodeName,
-        $nodeTypeName,
-        array $properties = array()
-    ) {
+    public function createChildNode(NodeInterface $referenceNode, $idealNodeName, $nodeTypeName, array $properties = []) {
         $this->processProperties($properties);
         $nodeType = $this->nodeTypeManager->getNodeType($nodeTypeName);
         $node = $referenceNode->createNode(
@@ -172,13 +167,12 @@ class AbstractDataService {
         foreach ($properties as $propertyName => $propertyValue) {
             if (in_array($propertyName, $this->dateProperties)) {
                 try {
+                    $propertyValue = trim($propertyValue);
+                    if (!empty($propertyValue)) {
+                        $propertyValue = new \DateTime($propertyValue);
+                    }
                     if ($propertyValue === 'Invalid date') {
                         $propertyValue = null;
-                    } else {
-                        $propertyValue = trim($propertyValue);
-                        if (!empty($propertyValue)) {
-                            $propertyValue = new \DateTime($propertyValue);
-                        }
                     }
 
                     if (!$propertyValue instanceof \DateTime && $propertyName === 'publicationDate') {
@@ -194,8 +188,8 @@ class AbstractDataService {
             }
 
             if (is_string($propertyValue)) {
-                $allowed_tags = in_array($propertyName, $this->editorProperties) ? $this->editorTagWhitelist: '';
-                $propertyValue = strip_tags($propertyValue, $allowed_tags);
+                $allowedTags = in_array($propertyName, $this->editorProperties) ? $this->editorTagWhitelist: '';
+                $propertyValue = strip_tags($propertyValue, $allowedTags);
             }
 
             $node->setProperty($propertyName, $propertyValue);
@@ -235,15 +229,15 @@ class AbstractDataService {
         foreach ($newPropertyValues as $property => $value) {
             if (in_array($property, $this->dateProperties)) {
                 try {
+                    $value = trim($value);
+                    if (!empty($value)) {
+                        $value = new \DateTime($value);
+                    }
                     if ($value === 'Invalid date') {
                         $value = null;
-                    } else {
-                        $value = trim($value);
-                        if (!empty($value)) {
-                            $value = new \DateTime($value);
-                        } else {
-                            $value = null;
-                        }
+                    }
+                    if (!$value instanceof \DateTime) {
+                        throw new \Exception('Not a valid DateTime object');
                     }
                 } catch (\Exception $exception) {
                     $value = null;
@@ -260,8 +254,8 @@ class AbstractDataService {
             }
 
             if (is_string($value)) {
-                $allowed_tags = in_array($property, $this->editorProperties) ? $this->editorTagWhitelist: '';
-                $value = strip_tags($value, $allowed_tags);
+                $allowedTags = in_array($property, $this->editorProperties) ? $this->editorTagWhitelist: '';
+                $value = strip_tags($value, $allowedTags);
             }
 
             $referenceNode->setProperty($property, $value);
@@ -318,13 +312,12 @@ class AbstractDataService {
             if ($identifier === $this->getActiveProfile()->getIdentifier()) {
                 return;
             }
-        } else {
-            $author = $referenceNode->getProperty('author');
-            if ($author instanceof NodeInterface) {
-                $identifier = $referenceNode->getProperty('author')->getIdentifier();
-                if ($identifier === $this->getActiveProfile()->getIdentifier()) {
-                    return;
-                }
+        }
+        $author = $referenceNode->getProperty('author');
+        if ($author instanceof NodeInterface) {
+            $identifier = $referenceNode->getProperty('author')->getIdentifier();
+            if ($identifier === $this->getActiveProfile()->getIdentifier()) {
+                return;
             }
         }
 
