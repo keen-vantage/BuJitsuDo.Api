@@ -4,5 +4,12 @@ languages:
   PHP: true
   Python: false
 
+engines:
+  phpmd:
+    enabled: true
+    checks:
+      Naming/LongVariable:
+        enabled: false
+
 exclude_paths:
   - "Tests/*"
