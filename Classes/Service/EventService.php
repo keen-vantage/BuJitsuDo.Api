@@ -38,6 +38,9 @@ class EventService extends AbstractDataService
         $context = $this->contextFactory->create(['workspaceName' => 'live']);
         $flowQuery = new FlowQuery([$context->getRootNode()]);
         $events = $flowQuery->find('[instanceof Nieuwenhuizen.BuJitsuDo:Event][!instanceof Nieuwenhuizen.BuJitsuDo:Exam]')->get();
+        usort($events, function(NodeInterface $a, NodeInterface $b) {
+            return $this->sortNodesSelection($a, $b, 'start', false);
+        }) ;
         $result['events'] = [];
         foreach ($events as $event) {
             $result['events'][] = $this->buildSingleItemJson($event);

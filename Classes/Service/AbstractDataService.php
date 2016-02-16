@@ -393,4 +393,31 @@ class AbstractDataService {
         return $tagArray;
     }
 
+    /**
+     * Method that can be used in usort() to sort by a property in a node
+     *
+     * Example
+     * <code>
+     * usort($events, function(NodeInterface $a, NodeInterface $b) {
+     *     return $this->sortNodesByDate($a, $b, 'date', false);
+     * });
+     * </code>
+     *
+     * @param NodeInterface $a
+     * @param NodeInterface $b
+     * @param string $property
+     * @param boolean $ascending
+     * @return integer
+     */
+    protected function sortNodesSelection(NodeInterface $a, NodeInterface $b, $property, $ascending = true)
+    {
+        if ($a->getProperty($property) === $b->getProperty($property)) {
+            return 0;
+        }
+        if ($a->getProperty($property) < $b->getProperty($property)) {
+            return $ascending === true ? -1 : 1;
+        }
+        return $ascending === true ? 1 : -1;
+    }
+
 }
