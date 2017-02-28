@@ -8,7 +8,7 @@ use TYPO3\Eel\FlowQuery\FlowQuery;
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\Flow\Log\SystemLoggerInterface;
 use TYPO3\Flow\Persistence\Doctrine\PersistenceManager;
-use TYPO3\Flow\Resource\ResourceManager;
+use TYPO3\Flow\ResourceManagement\ResourceManager;
 use TYPO3\Flow\Security\Account;
 use TYPO3\Flow\Security\Context as SecurityContext;
 use TYPO3\Flow\Security\Exception\AccessDeniedException;
