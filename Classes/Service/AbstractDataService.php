@@ -195,7 +195,7 @@ class AbstractDataService {
             $node->setProperty($propertyName, $propertyValue);
         }
 
-        if ($node->getNodeType()->isOfType('TYPO3.Neos:Document')) {
+        if ($node->getNodeType()->isOfType('Neos.Neos:Document')) {
             $node->setProperty('uriPathSegment', $node->getName());
         }
 

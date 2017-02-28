@@ -63,7 +63,7 @@ class NewsService extends AbstractDataService
      */
     protected function buildSingleItemJson(NodeInterface $article)
     {
-        $contentCollection = $article->getChildNodes('TYPO3.Neos:ContentCollection')[0];
+        $contentCollection = $article->getChildNodes('Neos.Neos:ContentCollection')[0];
         $articleBody = '';
         if ($contentCollection instanceof NodeInterface) {
             $content = $contentCollection->getChildNodes();
