@@ -1,8 +1,8 @@
 <?php
 namespace BuJitsuDo\Api\Service;
 
-use TYPO3\Flow\Http\Request;
-use TYPO3\Flow\Http\Response;
+use Neos\Flow\Http\Request;
+use Neos\Flow\Http\Response;
 
 class DataService
 {

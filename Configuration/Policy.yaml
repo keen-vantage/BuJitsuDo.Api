@@ -1,12 +1,12 @@
 privilegeTargets:
 
-  'TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+  'Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
 
     'BuJitsuDo.Api:Api':
       matcher: 'method(BuJitsuDo\Api\Controller\ApiController->.*Action())'
 
 roles:
-  'TYPO3.Flow:Anonymous':
+  'Neos.Flow:Anonymous':
     privileges:
       -
         privilegeTarget: 'BuJitsuDo.Api:Api'

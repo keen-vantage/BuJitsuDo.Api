@@ -2,8 +2,8 @@
 namespace BuJitsuDo\Api\Controller;
 
 use BuJitsuDo\Api\Service\DataService;
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Mvc\Controller\ActionController;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Mvc\Controller\ActionController;
 
 class ApiController extends ActionController
 {
