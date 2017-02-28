@@ -13,12 +13,12 @@ use Neos\Flow\Security\Account;
 use Neos\Flow\Security\Context as SecurityContext;
 use Neos\Flow\Security\Exception\AccessDeniedException;
 use Neos\Flow\Security\Policy\Role;
-use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
-use TYPO3\TYPO3CR\Domain\Service\Context;
-use TYPO3\TYPO3CR\Domain\Service\ContextFactoryInterface;
-use TYPO3\TYPO3CR\Domain\Service\NodeTypeManager;
-use TYPO3\TYPO3CR\Domain\Service\PublishingService;
-use TYPO3\TYPO3CR\Utility as NodeUtility;
+use Neos\ContentRepository\Domain\Model\NodeInterface;
+use Neos\ContentRepository\Domain\Service\Context;
+use Neos\ContentRepository\Domain\Service\ContextFactoryInterface;
+use Neos\ContentRepository\Domain\Service\NodeTypeManager;
+use Neos\ContentRepository\Domain\Service\PublishingService;
+use Neos\ContentRepository\Utility as NodeUtility;
 
 class AbstractDataService {
 
