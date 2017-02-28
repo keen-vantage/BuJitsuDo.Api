@@ -4,7 +4,7 @@ namespace BuJitsuDo\Api\Service;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\DBAL\Driver\Connection;
 use Doctrine\DBAL\Driver\Statement;
-use TYPO3\Eel\FlowQuery\FlowQuery;
+use Neos\Eel\FlowQuery\FlowQuery;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Log\SystemLoggerInterface;
 use Neos\Flow\Persistence\Doctrine\PersistenceManager;
