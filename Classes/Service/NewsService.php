@@ -70,8 +70,8 @@ class NewsService extends AbstractDataService
             if (is_array($content) && array_key_exists(0, $content)) {
                 foreach ($content as $node) {
                     /** @var NodeInterface $node */
-                    if ($node->getNodeType()->getName() === 'TYPO3.Neos.NodeTypes:Text' ||
-                        $node->getNodeType()->getName() === 'TYPO3.Neos.NodeTypes:TextWithImage'
+                    if ($node->getNodeType()->getName() === 'Neos.NodeTypes:Text' ||
+                        $node->getNodeType()->getName() === 'Neos.NodeTypes:TextWithImage'
                     ) {
                         $articleBody .= $node->getProperty('text');
                     }
