@@ -3,9 +3,9 @@ namespace BuJitsuDo\Api\Service;
 
 use Neos\Eel\FlowQuery\FlowQuery;
 use Neos\Flow\Annotations as Flow;
-use TYPO3\Media\Domain\Model\Image;
-use TYPO3\Media\Domain\Model\ThumbnailConfiguration;
-use TYPO3\Media\Domain\Service\AssetService;
+use Neos\Media\Domain\Model\Image;
+use Neos\Media\Domain\Model\ThumbnailConfiguration;
+use Neos\Media\Domain\Service\AssetService;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Service\ContextFactoryInterface;
 
